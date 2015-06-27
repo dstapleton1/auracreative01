@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">Brand</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+
+      <ul class="nav navbar-nav navbar-right">
+        <% unless user_signed_in? %>
+          <li><%= link_to 'Sign In', new_user_session_path %></li>
+          <% else %>
+
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <%# if current_user.profile %>
+            <%# current_user.profile.name %>
+          <%# else %>
+          <%# Menu %>
+          <%# end %>
+
+          <%= current_user.profile ? current_user.profile.name : Menu %>
+          <ul class="dropdown-menu">
+            <% if current_user.has_role? :admin %>
+              <li><a href="/admin">Admin</a></li>
+            <% end %>
+            <% if current_user.profile %>
+              <li><%= link_to "My profile", profile_path(current_user.profile) %>
+            <% else %>
+              <li><%= link_to "Create profile", new_profile_path %></li>
+            <% end %>
+            <li><a href="#">Something else here</a></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to 'sign out', destroy_user_session_path, method: :delete %></li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>

@@ -1,0 +1,17 @@
+<%= content_for :title, 'Testing' %>
+
+<h1>Aura Creative</h1>
+<h3>COWORKING & EVENT SPACE</h3>
+
+<%= image_tag 'elephant.jpg', alt: 'pic elephant', title:'This elephant', class: 'img-thumbnail img-circle' %>
+
+<a href"<%= asset_path 'elephant.jpg' %>">
+
+<% if user_signed_in? %>
+  <p>Your email address is <%= current_user.email %></p>
+  <% if current_user.profile %>
+    <p>Welcome <%= current_user.profile.name %></p>
+  <% else %>
+    <%= link_to "Create your profile", new_profile_path, class: 'btn btn_primary' %>
+  <% end %>
+<% end %>
