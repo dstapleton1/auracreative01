@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Business Profiles</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Logo</th>
+      <th>Description</th>
+      <th>Head count</th>
+      <th>Website link</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @business_profiles.each do |business_profile| %>
+      <tr>
+        <td><%= business_profile.name %></td>
+        <td><%= business_profile.logo %></td>
+        <td><%= business_profile.description %></td>
+        <td><%= business_profile.head_count %></td>
+        <td><%= business_profile.website_link %></td>
+        <td><%= link_to 'Show', business_profile %></td>
+        <td><%= link_to 'Edit', edit_business_profile_path(business_profile) %></td>
+        <td><%= link_to 'Destroy', business_profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Business profile', new_business_profile_path %>

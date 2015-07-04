@@ -16,6 +16,7 @@
 
 
       <ul class="nav navbar-nav navbar-right">
+        <li><%= link_to 'Resident businesses', business_profiles_path %></li>
         <% unless user_signed_in? %>
           <li><%= link_to 'Sign In', new_user_session_path %></li>
           <% else %>

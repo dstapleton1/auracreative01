@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :business_profiles do
+    member do
+      get :join
+      delete :leave
+    end
+  end
   resources :profiles
   devise_for :users
   get 'admin', to: 'admin#index'
