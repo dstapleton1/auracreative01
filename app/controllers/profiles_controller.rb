@@ -10,6 +10,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
+    @business_profiles = @profile.user.business_profiles
   end
 
   # GET /profiles/new
