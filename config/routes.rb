@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     end
   end
   resources :profiles
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => "registrations" }
   get 'admin', to: 'admin#index'
 
   get 'home/index'

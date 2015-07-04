@@ -52,6 +52,7 @@ class BusinessProfilesController < ApplicationController
   # PATCH/PUT /business_profiles/1
   # PATCH/PUT /business_profiles/1.json
   def update
+    @business_profile.slug = nil
     respond_to do |format|
       if @business_profile.update(business_profile_params)
         format.html { redirect_to @business_profile, notice: 'Business profile was successfully updated.' }
@@ -76,7 +77,7 @@ class BusinessProfilesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_business_profile
-      @business_profile = BusinessProfile.find(params[:id])
+      @business_profile = BusinessProfile.friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

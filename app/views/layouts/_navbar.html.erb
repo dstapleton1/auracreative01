@@ -29,7 +29,7 @@
           <%# Menu %>
           <%# end %>
 
-          <%= current_user.profile ? current_user.profile.name : Menu %>
+          <%= current_user.profile ? current_user.profile.name : 'Menu' %>
           <ul class="dropdown-menu">
             <% if current_user.has_role? :admin %>
               <li><a href="/admin">Admin</a></li>
