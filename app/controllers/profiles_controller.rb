@@ -10,7 +10,9 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @business_profiles = @profile.user.business_profiles
+    @user = @profile.user
+    @business_profiles = @user.business_profiles
+    @events = @user.events.future_events.chron_order.limit(3)
   end
 
   # GET /profiles/new

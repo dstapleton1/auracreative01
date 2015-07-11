@@ -1,6 +1,7 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Business Profiles</h1>
+<h1>Business Profiles <%= "tagged with " + params[:tag] + " (" + @tag.taggings_count.to_s + ")" if params[:tag] %> </h1>
+<%= link_to 'Clear filter (all profiles)', business_profiles_path, class: 'btn btn-warning' %><br>
 
 <table>
   <thead>

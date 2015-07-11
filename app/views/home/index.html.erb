@@ -15,3 +15,22 @@
     <%= link_to "Create your profile", new_profile_path, class: 'btn btn_primary' %>
   <% end %>
 <% end %>
+
+
+<h1>Upcoming Events</h1>
+<div class="row">
+  <div class ="col-md-4">
+    <% @events.each do |event| %>
+    <div class="panel panel-info">
+      <div class="panel-heading">
+        <h3 class="panel-title"><%= link_to event.name, event %></h3>
+      </div>
+      <div class="panel-body">
+        <p><%= event.description %></p>
+        <p><strong>Location: </strong><%= event.location %></p>
+        <p><strong>Starts: </strong><%= event.starts.strftime('%l:%m%P %d %b %Y') %></p>
+      </div>
+    <div>
+    <% end %>
+  </div>
+</div>
